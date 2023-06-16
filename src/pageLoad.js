@@ -5,6 +5,7 @@ const pageLoad = function(){
     header.textContent = 'This is my header'
     header.setAttribute('id', 'header')
     content.appendChild(header)
+    header.classList.add('container')
 
     const taskContainer = document.createElement('div')
     taskContainer.setAttribute('id', 'taskContainer')

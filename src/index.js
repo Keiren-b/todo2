@@ -1,4 +1,5 @@
 import pageLoad from "./pageLoad"
+import './style.css';
 import collectInputs from "./newToDo"
 import populateStorage from "./storage.js"
 import taskInputs from "./taskInputs"
@@ -18,6 +19,7 @@ import taskInputs from "./taskInputs"
 // // creates the dom inputs - all DOM related no logic
 // taskInputs()
 pageLoad()
+
 
 
 
