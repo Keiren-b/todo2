@@ -8,12 +8,8 @@ function populateStorage(x){
     else{
         localStorage.setItem(x.title, JSON.stringify(x))
     }
+
+    console.log(localStorage)
 }
-
-// function readAndStore(){
-// populateStorage(collectInputs())
-// }
-
-// export default readAndStore
 
 export default populateStorage

@@ -15,7 +15,9 @@ const collectInputs = function(){
     const notes = document.getElementById('notes').value
 
     return new Todo (title, desc, due, priority, notes)
-}    
+}
+
+
 
 export default collectInputs
 

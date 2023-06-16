@@ -81,10 +81,10 @@ const taskInputs = () => {
     inputContainer.appendChild(noteslabel);
     inputContainer.appendChild(notes)
 
-    const submitBtn = document.createElement('button')
-    submitBtn.textContent = "Add To-Do"
-    submitBtn.setAttribute('id', 'printBtn')
-    inputContainer.appendChild(submitBtn)
+    // const submitBtn = document.createElement('button')
+    // submitBtn.textContent = "Add To-Do"
+    // submitBtn.setAttribute('id', 'printBtn')
+    // inputContainer.appendChild(submitBtn)
 
     content.appendChild(inputContainer)
     testInputValue()
