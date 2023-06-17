@@ -25,4 +25,4 @@ newProjectBtn.onclick = function() {
 }
 }
 
-export default projectInput
+export {projectInput,}
