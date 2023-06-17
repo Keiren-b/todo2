@@ -1,3 +1,4 @@
+import taskInputs from "./taskInputs"
 const pageLoad = function(){
     const content = document.getElementById('content')
 
@@ -9,26 +10,21 @@ const pageLoad = function(){
 
     const taskContainer = document.createElement('div')
     taskContainer.setAttribute('id', 'taskContainer')
-    taskContainer.textContent = 'This is my task container'
+    // taskContainer.textContent = 'This is my task container'
     taskContainer.style.backgroundColor = 'grey'
     content.appendChild(taskContainer)
 
     const sidebar = document.createElement('div')
     sidebar.setAttribute('id', 'sidebar')
     sidebar.textContent = 'This is my sidebar'
-    content.appendChild(sidebar)
+    taskContainer.appendChild(sidebar)
 
     const taskDisplay = document.createElement('div')
     taskDisplay.setAttribute('id', 'taskDisplay')
     taskDisplay.textContent = 'This is my task display'
-    content.appendChild(taskDisplay)
+    taskContainer.appendChild(taskDisplay)
 
-
-
-
-
-
-    
+taskInputs()
 }
 
 export default pageLoad

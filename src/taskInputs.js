@@ -1,3 +1,5 @@
+import populateStorage from "./storage.js"
+import collectInputs from "./newToDo"
 // this is all DOM related stuff
 
 // this is a test function to give the inputs values and see if they are read correctly by other functions
@@ -22,7 +24,7 @@ const testInputValue = function(){
 }
 
 const taskInputs = () => {
-    const content = document.getElementById('content')
+    const taskDisplay = document.getElementById('taskDisplay')
 
     const inputContainer = document.createElement('div')
     inputContainer.setAttribute('id', 'inputContainer')
@@ -81,12 +83,14 @@ const taskInputs = () => {
     inputContainer.appendChild(noteslabel);
     inputContainer.appendChild(notes)
 
-    // const submitBtn = document.createElement('button')
-    // submitBtn.textContent = "Add To-Do"
-    // submitBtn.setAttribute('id', 'printBtn')
-    // inputContainer.appendChild(submitBtn)
+    const submitBtn = document.createElement('button')
+    submitBtn.textContent = "Add To-Do"
+    submitBtn.setAttribute('id', 'printBtn')
+    inputContainer.appendChild(submitBtn)
+    submitBtn.addEventListener('click',()=>populateStorage(collectInputs()))
 
-    content.appendChild(inputContainer)
+
+    taskDisplay.appendChild(inputContainer)
     testInputValue()
 }
 

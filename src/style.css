@@ -1,3 +1,12 @@
 .container {
     background-color: lightcoral;
 }
+
+#taskContainer {
+    display: flex;
+}
+
+#inputContainer {
+    display: flex;
+    flex-direction: column;
+}
