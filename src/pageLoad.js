@@ -3,6 +3,9 @@ import projectInput from "./projectInput"
 import newProject from "./newProject"
 
 const pageLoad = function(){
+// remove this line when not testing
+    localStorage.clear()
+
     const content = document.getElementById('content')
 
     const header = document.createElement('div')
@@ -42,6 +45,7 @@ const projectInputDOM = function(){
     const projectModal = document.createElement('div')
     projectModal.setAttribute('id','projectModal')
     projectModal.classList.add('projectModal')
+    projectModal.classList.add('hidden')
     content.appendChild(projectModal)
 
     const modalHeader = document.createElement('div')

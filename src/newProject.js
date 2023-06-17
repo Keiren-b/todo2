@@ -15,9 +15,7 @@ const newProject = function(){
     }
 
     console.log(localStorage)
-    projectModal.style.display = "none";
-
-alertActiveProject()
+    projectModal.classList.add('hidden')
 
     return activeProject
 }

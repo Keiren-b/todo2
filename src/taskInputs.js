@@ -26,8 +26,10 @@ const testInputValue = function(){
 const taskInputs = () => {
     const taskDisplay = document.getElementById('taskDisplay')
 
+
     const inputContainer = document.createElement('div')
     inputContainer.setAttribute('id', 'inputContainer')
+    inputContainer.classList.add('hidden')
 
     const title = document.createElement("input");
     title.name = "Title";
