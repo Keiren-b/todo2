@@ -19,10 +19,21 @@ const pageLoad = function(){
     sidebar.textContent = 'This is my sidebar'
     taskContainer.appendChild(sidebar)
 
+    const projectMenu = document.createElement('div')
+    projectMenu.setAttribute('id','projectMenu')
+    sidebar.appendChild(projectMenu)
+    
+    const newProjectBtn = document.createElement('button')
+    newProjectBtn.textContent = "Add New Project"
+    projectMenu.appendChild(newProjectBtn)
+
     const taskDisplay = document.createElement('div')
     taskDisplay.setAttribute('id', 'taskDisplay')
     taskDisplay.textContent = 'This is my task display'
     taskContainer.appendChild(taskDisplay)
+
+    
+
 
 taskInputs()
 }
