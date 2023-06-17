@@ -1,5 +1,6 @@
 import taskInputs from "./taskInputs"
 import projectInput from "./projectInput"
+import newProject from "./newProject"
 
 const pageLoad = function(){
     const content = document.getElementById('content')
@@ -52,14 +53,14 @@ const projectInputDOM = function(){
     modalInputContainer.setAttribute('id','modalInputContainer')
     projectModal.appendChild(modalInputContainer)
 
-    const title = document.createElement("input");
-    title.name = "Title";
-    title.setAttribute('id', 'title')
-    const titlelabel = document.createElement("Label");
-    titlelabel.setAttribute("for", title);
-    titlelabel.innerHTML = "Title: ";
-    modalInputContainer.appendChild(titlelabel);
-    modalInputContainer.appendChild(title)
+    const projectTitle = document.createElement("input");
+    projectTitle.name = "Title";
+    projectTitle.setAttribute('id', 'projectTitle')
+    const projectTitleLabel = document.createElement("Label");
+    projectTitleLabel.setAttribute("for", projectTitle);
+    projectTitleLabel.innerHTML = "Title: ";
+    modalInputContainer.appendChild(projectTitleLabel);
+    modalInputContainer.appendChild(projectTitle)
 
     const cancelBtn = document.createElement('button')
     cancelBtn.setAttribute('id','cancelBtn')
@@ -69,12 +70,14 @@ const projectInputDOM = function(){
     const addBtn = document.createElement('button')
     addBtn.setAttribute('id','addBtn')
     addBtn.textContent = 'Add'
+    addBtn.addEventListener('click',()=>newProject())
     modalInputContainer.appendChild(addBtn)
 }
 
 projectInputDOM()
 projectInput()
 taskInputs()
+
 }
 
 export default pageLoad
