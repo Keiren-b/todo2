@@ -1,4 +1,3 @@
-
 const projectInput = function(){
 const projectModal = document.getElementById('projectModal')
 const newProjectBtn = document.getElementById('newProjectBtn')

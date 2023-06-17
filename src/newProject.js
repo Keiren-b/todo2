@@ -16,6 +16,7 @@ const newProject = function(){
 
     console.log(localStorage)
     projectModal.classList.add('hidden')
+    inputContainer.classList.remove('hidden')
 
     return activeProject
 }

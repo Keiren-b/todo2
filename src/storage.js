@@ -1,4 +1,5 @@
 import collectInputs from "./newToDo"
+import newProject from "./newProject"
 
 function populateStorage(x){
     if (localStorage.getItem(x.title)!=null){
