@@ -1,6 +1,9 @@
-import taskInputs from "./taskInputs"
-import projectInput from "./projectInput"
-import newProject from "./newProject"
+import {taskInputs} from "./task.js"
+import {projectInputDOM, projectInputReveal} from "./project.js"
+
+// import taskInputs from "./taskInputs"
+// import projectInput from "./projectInput"
+// import newProject from "./newProject"
 
 const pageLoad = function(){
 // remove this line when not testing
@@ -40,47 +43,48 @@ const pageLoad = function(){
     taskContainer.appendChild(taskDisplay)
 
     // This is DOM Stuff only
-const projectInputDOM = function(){
-    const content = document.getElementById('content')
-    const projectModal = document.createElement('div')
-    projectModal.setAttribute('id','projectModal')
-    projectModal.classList.add('projectModal')
-    projectModal.classList.add('hidden')
-    content.appendChild(projectModal)
+// const projectInputDOM = function(){
+//     const content = document.getElementById('content')
+//     const projectModal = document.createElement('div')
+//     projectModal.setAttribute('id','projectModal')
+//     projectModal.classList.add('projectModal')
+//     projectModal.classList.add('hidden')
+//     content.appendChild(projectModal)
 
-    const modalHeader = document.createElement('div')
-    modalHeader.setAttribute('id','modalHeader')
-    modalHeader.textContent = 'Add New Project'
-    projectModal.appendChild(modalHeader)
+//     const modalHeader = document.createElement('div')
+//     modalHeader.setAttribute('id','modalHeader')
+//     modalHeader.textContent = 'Add New Project'
+//     projectModal.appendChild(modalHeader)
 
-    const modalInputContainer = document.createElement('div')
-    modalInputContainer.setAttribute('id','modalInputContainer')
-    projectModal.appendChild(modalInputContainer)
+//     const modalInputContainer = document.createElement('div')
+//     modalInputContainer.setAttribute('id','modalInputContainer')
+//     projectModal.appendChild(modalInputContainer)
 
-    const projectTitle = document.createElement("input");
-    projectTitle.name = "Title";
-    projectTitle.setAttribute('id', 'projectTitle')
-    const projectTitleLabel = document.createElement("Label");
-    projectTitleLabel.setAttribute("for", projectTitle);
-    projectTitleLabel.innerHTML = "Title: ";
-    modalInputContainer.appendChild(projectTitleLabel);
-    modalInputContainer.appendChild(projectTitle)
+//     const projectTitle = document.createElement("input");
+//     projectTitle.name = "Title";
+//     projectTitle.setAttribute('id', 'projectTitle')
+//     const projectTitleLabel = document.createElement("Label");
+//     projectTitleLabel.setAttribute("for", projectTitle);
+//     projectTitleLabel.innerHTML = "Title: ";
+//     modalInputContainer.appendChild(projectTitleLabel);
+//     modalInputContainer.appendChild(projectTitle)
 
-    const cancelBtn = document.createElement('button')
-    cancelBtn.setAttribute('id','cancelBtn')
-    cancelBtn.textContent = 'Cancel'
-    modalInputContainer.appendChild(cancelBtn)
+//     const cancelBtn = document.createElement('button')
+//     cancelBtn.setAttribute('id','cancelBtn')
+//     cancelBtn.textContent = 'Cancel'
+//     modalInputContainer.appendChild(cancelBtn)
 
-    const addBtn = document.createElement('button')
-    addBtn.setAttribute('id','addBtn')
-    addBtn.textContent = 'Add'
-    addBtn.addEventListener('click',()=>newProject())
-    modalInputContainer.appendChild(addBtn)
-}
+//     const addBtn = document.createElement('button')
+//     addBtn.setAttribute('id','addBtn')
+//     addBtn.textContent = 'Add'
+//     addBtn.addEventListener('click',()=>newProject())
+//     modalInputContainer.appendChild(addBtn)
+// }
 
 projectInputDOM()
-projectInput()
+projectInputReveal()
 taskInputs()
+alert('branch')
 
 }
 
