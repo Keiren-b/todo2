@@ -33,7 +33,7 @@ const projectInputDOM = function(){
     const addBtn = document.createElement('button')
     addBtn.setAttribute('id','addBtn')
     addBtn.textContent = 'Add'
-    addBtn.addEventListener('click',()=>newProject())
+    addBtn.addEventListener('click',()=>storeProject())
     modalInputContainer.appendChild(addBtn)
 }
 
