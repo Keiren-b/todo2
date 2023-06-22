@@ -84,7 +84,6 @@ const pageLoad = function(){
 projectInputDOM()
 projectInputReveal()
 taskInputs()
-alert('branch')
 
 }
 

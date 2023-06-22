@@ -65,13 +65,23 @@ const projectInputReveal = function(){
     }
     }
 
+// trial function for setting project name
+function showActiveProject(projectName){
+    const project = {
+        projectName:''
+    }
+    return project
+}
+
 // this function stores the current project in local storage *** NAME CHANGED
 
 const storeProject = function(){
     const projecModal = document.getElementById('projectModal')
-    const activeProject = {
-        'name':''
-    }
+    const activeProject = activeProject()
+
+    // const activeProject = {
+    //     'name':''
+    // }
     const projectName = document.getElementById('projectTitle')
     activeProject.name = projectName.value
 
@@ -87,7 +97,7 @@ const storeProject = function(){
     projectModal.classList.add('hidden')
     inputContainer.classList.remove('hidden')
 
-    return activeProject
+    // return activeProject
 }
 
 export {
