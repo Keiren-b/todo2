@@ -66,7 +66,7 @@ const projectInputReveal = function(){
     }
 
 // trial function for setting project name
-function showActiveProject(projectName){
+function activeProject(){
     const project = {
         projectName:''
     }
@@ -76,22 +76,19 @@ function showActiveProject(projectName){
 // this function stores the current project in local storage *** NAME CHANGED
 
 const storeProject = function(){
-    const projecModal = document.getElementById('projectModal')
-    const activeProject = activeProject()
-
-    // const activeProject = {
-    //     'name':''
-    // }
+    const projectModal = document.getElementById('projectModal')
     const projectName = document.getElementById('projectTitle')
-    activeProject.name = projectName.value
 
-    if (localStorage.getItem(activeProject.name)!=null){
+    if(event.currentTarget.getAttribute('id')=='addBtn'){
+
+        if (localStorage.getItem(projectName.value)!=null){
         alert("This Project Already Exists. Choose another name")
         return
-    }
-    else{
-        localStorage.setItem(activeProject.name, '')
-    }
+        }
+        else{
+            localStorage.setItem(projectName.value, 'projects'),
+
+        }
 
     console.log(localStorage)
     projectModal.classList.add('hidden')
