@@ -123,10 +123,19 @@ function taskStorage(x) {
     }
     else {
         if (localStorage.getItem(currentProject)==''){
-        localStorage.setItem(currentProject,JSON.stringify(x))
+            let newTaskTitle = x.title
+            let newTask = {[newTaskTitle]:x}
+            localStorage.setItem(currentProject,JSON.stringify(newTask))
             console.log(localStorage)
-        // allTasks = Object.assign(allTasks, x)
-        // localStorage.setItem(currentProject, allTasks)
+        }
+        else{
+            let allTasks = JSON.parse(localStorage.getItem(currentProject))
+            let newTaskTitle = x.title
+            let newTask = {[newTaskTitle]:x}
+            allTasks = Object.assign(allTasks,newTask)
+            localStorage.setItem(currentProject,JSON.stringify(allTasks))
+
+            
         }
     }
 
