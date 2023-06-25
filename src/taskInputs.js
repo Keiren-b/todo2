@@ -1,4 +1,4 @@
-import populateStorage from "./storage.js"
+import taskStorage from "./storage.js"
 import collectInputs from "./newToDo"
 // this is all DOM related stuff
 
@@ -89,7 +89,7 @@ const taskInputs = () => {
     submitBtn.textContent = "Add To-Do"
     submitBtn.setAttribute('id', 'printBtn')
     inputContainer.appendChild(submitBtn)
-    submitBtn.addEventListener('click',()=>populateStorage(collectInputs()))
+    submitBtn.addEventListener('click',()=>taskStorage(collectInputs()))
 
 
     taskDisplay.appendChild(inputContainer)

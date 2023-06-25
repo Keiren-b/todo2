@@ -7,8 +7,7 @@ import {projectInputDOM, projectInputReveal} from "./project.js"
 
 const pageLoad = function(){
 // remove this line when not testing
-    localStorage.clear()
-
+    
     const content = document.getElementById('content')
 
     const header = document.createElement('div')
@@ -42,6 +41,10 @@ const pageLoad = function(){
     taskDisplay.textContent = 'This is my task display'
     taskContainer.appendChild(taskDisplay)
 
+    const clearBtn = document.createElement('button')
+    taskDisplay.appendChild(clearBtn)
+    clearBtn.textContent = 'CLEAR'
+    clearBtn.addEventListener('click',()=>localStorage.clear())
     // This is DOM Stuff only
 // const projectInputDOM = function(){
 //     const content = document.getElementById('content')

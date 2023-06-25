@@ -60,45 +60,48 @@ const projectInputReveal = function(){
       window.onclick = function(event) {
         if (event.target == projectModal) {
         //   projectModal.style.display = "none";
+            projectModal.classList.add('hidden')
+            }
+        }
+    }
+    const currentProject = {
+        name:''
+    }
+
+    const returnCurrentProject = function() {
+            return currentProject.name
+    }
+
+    const storeProject = function(){
+        let projectModal = document.getElementById('projectModal')
+        let projectName = document.getElementById('projectTitle')
+    
+        if(event.currentTarget.getAttribute('id')=='addBtn'){
+    
+            if (localStorage.getItem(projectName.value)!=null){
+            alert("This Project Already Exists. Choose another name")
+            // let projectName = ""
+
+            return
+            }
+            else{
+                localStorage.setItem(projectName.value, '')
+                currentProject.name=projectName.value
+            }
+        }
         projectModal.classList.add('hidden')
-        }
+        inputContainer.classList.remove('hidden')
+    
+        // return activeProject
     }
-    }
 
-// trial function for setting project name
-function activeProject(){
-    const project = {
-        projectName:''
-    }
-    return project
-}
 
-// this function stores the current project in local storage *** NAME CHANGED
 
-const storeProject = function(){
-    const projectModal = document.getElementById('projectModal')
-    const projectName = document.getElementById('projectTitle')
 
-    if(event.currentTarget.getAttribute('id')=='addBtn'){
-
-        if (localStorage.getItem(projectName.value)!=null){
-        alert("This Project Already Exists. Choose another name")
-        return
-        }
-        else{
-            localStorage.setItem(projectName.value, 'projects'),
-
-        }
-
-    console.log(localStorage)
-    projectModal.classList.add('hidden')
-    inputContainer.classList.remove('hidden')
-
-    // return activeProject
-}
 
 export {
     projectInputDOM,
     projectInputReveal,
     storeProject,
+    returnCurrentProject,
 }
