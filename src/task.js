@@ -134,8 +134,6 @@ function taskStorage(x) {
             let newTask = {[newTaskTitle]:x}
             allTasks = Object.assign(allTasks,newTask)
             localStorage.setItem(currentProject,JSON.stringify(allTasks))
-
-            
         }
     }
 
