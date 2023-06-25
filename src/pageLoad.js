@@ -1,5 +1,5 @@
 import {taskInputs} from "./task.js"
-import {projectInputDOM, projectInputReveal} from "./project.js"
+import {projectInputDOM, projectInputReveal, projectDisplayDom} from "./project.js"
 
 // import taskInputs from "./taskInputs"
 // import projectInput from "./projectInput"
@@ -45,6 +45,11 @@ const pageLoad = function(){
     taskDisplay.appendChild(clearBtn)
     clearBtn.textContent = 'CLEAR'
     clearBtn.addEventListener('click',()=>localStorage.clear())
+
+    const pBtn = document.createElement('button')
+    taskDisplay.appendChild(pBtn)
+    pBtn.textContent = 'ppp'
+    pBtn.addEventListener('click',()=>projectDisplayDom())
     // This is DOM Stuff only
 // const projectInputDOM = function(){
 //     const content = document.getElementById('content')

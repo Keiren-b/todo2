@@ -1,19 +1,19 @@
 // This function creates the project input DOM. This is DOM Stuff only
-const projectInputDOM = function(){
+const projectInputDOM = function () {
     const content = document.getElementById('content')
     const projectModal = document.createElement('div')
-    projectModal.setAttribute('id','projectModal')
+    projectModal.setAttribute('id', 'projectModal')
     projectModal.classList.add('projectModal')
     projectModal.classList.add('hidden')
     content.appendChild(projectModal)
 
     const modalHeader = document.createElement('div')
-    modalHeader.setAttribute('id','modalHeader')
+    modalHeader.setAttribute('id', 'modalHeader')
     modalHeader.textContent = 'Add New Project'
     projectModal.appendChild(modalHeader)
 
     const modalInputContainer = document.createElement('div')
-    modalInputContainer.setAttribute('id','modalInputContainer')
+    modalInputContainer.setAttribute('id', 'modalInputContainer')
     projectModal.appendChild(modalInputContainer)
 
     const projectTitle = document.createElement("input");
@@ -26,77 +26,90 @@ const projectInputDOM = function(){
     modalInputContainer.appendChild(projectTitle)
 
     const cancelBtn = document.createElement('button')
-    cancelBtn.setAttribute('id','cancelBtn')
+    cancelBtn.setAttribute('id', 'cancelBtn')
     cancelBtn.textContent = 'Cancel'
     modalInputContainer.appendChild(cancelBtn)
 
     const addBtn = document.createElement('button')
-    addBtn.setAttribute('id','addBtn')
+    addBtn.setAttribute('id', 'addBtn')
     addBtn.textContent = 'Add'
-    addBtn.addEventListener('click',()=>storeProject())
+    addBtn.addEventListener('click', () => {storeProject(),projectDisplayDom()})
     modalInputContainer.appendChild(addBtn)
 }
 
 // this function reveals or hides the project inputs by adding/removing hidden class *** NAME CHANGED
-const projectInputReveal = function(){
+const projectInputReveal = function () {
     const projectModal = document.getElementById('projectModal')
     const newProjectBtn = document.getElementById('newProjectBtn')
     const cancelBtn = document.getElementById('cancelBtn')
-    
-    
+
+
     // When the user clicks on the button, open the modal
-    newProjectBtn.onclick = function() {
+    newProjectBtn.onclick = function () {
         // projectModal.style.display = "block";
         projectModal.classList.remove('hidden')
-      }
-      
-      // When the user clicks on <span> (x), close the modal
-      cancelBtn.onclick = function() {
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    cancelBtn.onclick = function () {
         // projectModal.style.display = "none";
         projectModal.classList.add('hidden')
-      }
-      
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
         if (event.target == projectModal) {
-        //   projectModal.style.display = "none";
+            //   projectModal.style.display = "none";
             projectModal.classList.add('hidden')
-            }
         }
     }
-    const currentProject = {
-        name:''
-    }
+}
+const currentProject = {
+    name: ''
+}
 
-    const returnCurrentProject = function() {
-            return currentProject.name
-    }
+const returnCurrentProject = function () {
+    return currentProject.name
+}
 
-    const storeProject = function(){
-        let projectModal = document.getElementById('projectModal')
-        let projectName = document.getElementById('projectTitle')
-    
-        if(event.currentTarget.getAttribute('id')=='addBtn'){
-    
-            if (localStorage.getItem(projectName.value)!=null){
+const storeProject = function () {
+    let projectModal = document.getElementById('projectModal')
+    let projectName = document.getElementById('projectTitle')
+
+    if (event.currentTarget.getAttribute('id') == 'addBtn') {
+
+        if (localStorage.getItem(projectName.value) != null) {
             alert("This Project Already Exists. Choose another name")
             // let projectName = ""
 
             return
-            }
-            else{
-                localStorage.setItem(projectName.value, '')
-                currentProject.name=projectName.value
-            }
         }
-        projectModal.classList.add('hidden')
-        inputContainer.classList.remove('hidden')
-    
-        // return activeProject
+        else {
+            localStorage.setItem(projectName.value, '')
+            currentProject.name = projectName.value
+        }
+    }
+    projectModal.classList.add('hidden')
+    inputContainer.classList.remove('hidden')
+
+    // return activeProject
+}
+
+
+const projectDisplayDom = () => {
+    const sidebar = document.getElementById('sidebar')
+
+    while(sidebar.childElementCount>1){
+        sidebar.removeChild(sidebar.lastChild)
     }
 
-
-
+    for (let i = 0; i <= localStorage.length; i++) {
+        const title = localStorage.key(i)
+        const bar = document.createElement('div')
+        bar.textContent = title
+        sidebar.appendChild(bar)
+    }
+}
 
 
 export {
@@ -104,4 +117,5 @@ export {
     projectInputReveal,
     storeProject,
     returnCurrentProject,
+    projectDisplayDom
 }
