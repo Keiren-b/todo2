@@ -6,7 +6,6 @@ import {projectInputDOM, projectInputReveal, projectDisplayDom} from "./project.
 // import newProject from "./newProject"
 
 const pageLoad = function(){
-// remove this line when not testing
     
     const content = document.getElementById('content')
 
@@ -46,10 +45,6 @@ const pageLoad = function(){
     clearBtn.textContent = 'CLEAR'
     clearBtn.addEventListener('click',()=>localStorage.clear())
 
-    const pBtn = document.createElement('button')
-    taskDisplay.appendChild(pBtn)
-    pBtn.textContent = 'ppp'
-    pBtn.addEventListener('click',()=>projectDisplayDom())
     // This is DOM Stuff only
 // const projectInputDOM = function(){
 //     const content = document.getElementById('content')
@@ -89,6 +84,7 @@ const pageLoad = function(){
 //     modalInputContainer.appendChild(addBtn)
 // }
 
+projectDisplayDom()
 projectInputDOM()
 projectInputReveal()
 taskInputs()

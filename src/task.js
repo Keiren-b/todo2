@@ -108,7 +108,7 @@ const taskInputs = () => {
     submitBtn.textContent = "Add To-Do"
     submitBtn.setAttribute('id', 'printBtn')
     inputContainer.appendChild(submitBtn)
-    submitBtn.addEventListener('click', () => taskStorage(collectInputs()))
+    submitBtn.addEventListener('click', () => {taskStorage(collectInputs()),clearTaskInput()})
 
 
     taskDisplay.appendChild(inputContainer)
@@ -139,6 +139,13 @@ function taskStorage(x) {
 
 }
 
-export {
-    taskInputs,
-}
+const clearTaskInput = function(){
+    const inputContainer = document.getElementById('inputContainer')
+        for(let i=0; i<inputContainer.childElementCount; i++){
+            inputContainer.children[i].classList.add('hidden')
+        }
+    }
+    
+
+
+export {taskInputs}
