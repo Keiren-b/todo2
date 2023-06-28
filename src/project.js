@@ -40,6 +40,7 @@ const projectInputDOM = function () {
 // this function reveals or hides the project inputs by adding/removing hidden class *** NAME CHANGED
 const projectInputReveal = function () {
     const projectModal = document.getElementById('projectModal')
+    const newTaskBtn = document.getElementById('newTaskBtn')
     const newProjectBtn = document.getElementById('newProjectBtn')
     const cancelBtn = document.getElementById('cancelBtn')
 
@@ -48,6 +49,8 @@ const projectInputReveal = function () {
     newProjectBtn.onclick = function () {
         // projectModal.style.display = "block";
         projectModal.classList.remove('hidden')
+        newTaskBtn.classList.remove('hidden')
+
     }
 
     // When the user clicks on <span> (x), close the modal
@@ -106,11 +109,18 @@ const projectDisplayDom = () => {
     for (let i = 0; i <= localStorage.length; i++) {
         const title = localStorage.key(i)
         const bar = document.createElement('div')
+        const inputContainer = document.getElementById('inputContainer')
+        console.log(inputContainer.classList)
+        bar.setAttribute('id','bar')
         bar.textContent = title
         sidebar.appendChild(bar)
-    }
+        bar.addEventListener('click',()=> {
+            currentProject.name == event.target.textContent,
+            inputContainer.classList.remove('hidden')
+        })
+    // }
 }
-
+}
 
 export {
     projectInputDOM,

@@ -35,15 +35,30 @@ const pageLoad = function(){
     newProjectBtn.setAttribute('id','newProjectBtn')
     projectMenu.appendChild(newProjectBtn)
 
+    const newTaskBtn = document.createElement('button')
+    newTaskBtn.textContent = "Add New Task"
+    newTaskBtn.setAttribute('id','newTaskBtn')
+    projectMenu.appendChild(newTaskBtn)
+    newTaskBtn.classList.add('hidden')
+
+
     const taskDisplay = document.createElement('div')
     taskDisplay.setAttribute('id', 'taskDisplay')
     taskDisplay.textContent = 'This is my task display'
     taskContainer.appendChild(taskDisplay)
 
     const clearBtn = document.createElement('button')
-    taskDisplay.appendChild(clearBtn)
     clearBtn.textContent = 'CLEAR'
     clearBtn.addEventListener('click',()=>localStorage.clear())
+
+    const pp = document.createElement('button')
+    pp.textContent='ppp'
+
+
+    const testBtns = document.createElement('div')
+    content.appendChild(testBtns)
+    testBtns.appendChild(clearBtn)
+    testBtns.appendChild(pp)
 
     // This is DOM Stuff only
 // const projectInputDOM = function(){
@@ -84,10 +99,11 @@ const pageLoad = function(){
 //     modalInputContainer.appendChild(addBtn)
 // }
 
+taskInputs()
 projectDisplayDom()
 projectInputDOM()
 projectInputReveal()
-taskInputs()
+
 
 }
 

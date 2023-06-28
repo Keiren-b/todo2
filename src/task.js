@@ -141,11 +141,33 @@ function taskStorage(x) {
 
 const clearTaskInput = function(){
     const inputContainer = document.getElementById('inputContainer')
-        for(let i=0; i<inputContainer.childElementCount; i++){
-            inputContainer.children[i].classList.add('hidden')
+    for(let i = 0; i<inputContainer.childElementCount; i++){
+        if(inputContainer.children[i].nodeName!=="LABEL"){
+            inputContainer.children[i].value=''
         }
     }
+    inputContainer.classList.add('hidden')
+}
+    // inputContainer.child.forEach(child => {
+    //     child.value = ''
+    // });
+
+    // document.querySelectorAll('input').forEach( input => {
+    //     input.value = ''}),
+    // document.querySelectorAll('textarea').forEach( input => {
+    //         input.value = ''});
+            
     
+    
+
+    
+
+
+        // const newTaskBtn = document.getElementById('newTaskBtn')
+        // newTaskBtn.addEventListener('click',()=>alert('shit'))
+
+    
+
 
 
 export {taskInputs}
