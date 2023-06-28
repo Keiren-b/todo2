@@ -148,26 +148,5 @@ const clearTaskInput = function(){
     }
     inputContainer.classList.add('hidden')
 }
-    // inputContainer.child.forEach(child => {
-    //     child.value = ''
-    // });
-
-    // document.querySelectorAll('input').forEach( input => {
-    //     input.value = ''}),
-    // document.querySelectorAll('textarea').forEach( input => {
-    //         input.value = ''});
-            
     
-    
-
-    
-
-
-        // const newTaskBtn = document.getElementById('newTaskBtn')
-        // newTaskBtn.addEventListener('click',()=>alert('shit'))
-
-    
-
-
-
 export {taskInputs}

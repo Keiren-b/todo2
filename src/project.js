@@ -110,12 +110,12 @@ const projectDisplayDom = () => {
         const title = localStorage.key(i)
         const bar = document.createElement('div')
         const inputContainer = document.getElementById('inputContainer')
-        console.log(inputContainer.classList)
         bar.setAttribute('id','bar')
         bar.textContent = title
         sidebar.appendChild(bar)
         bar.addEventListener('click',()=> {
-            currentProject.name == event.target.textContent,
+            currentProject.name = event.target.textContent,
+            console.log(currentProject.name)
             inputContainer.classList.remove('hidden')
         })
     // }

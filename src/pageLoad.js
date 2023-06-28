@@ -40,6 +40,10 @@ const pageLoad = function(){
     newTaskBtn.setAttribute('id','newTaskBtn')
     projectMenu.appendChild(newTaskBtn)
     newTaskBtn.classList.add('hidden')
+    newTaskBtn.addEventListener('click',()=>{
+        const inputContainer=document.getElementById('inputContainer')
+        inputContainer.classList.remove('hidden')
+    })
 
 
     const taskDisplay = document.createElement('div')
