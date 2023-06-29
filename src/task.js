@@ -148,5 +148,10 @@ const clearTaskInput = function(){
     }
     inputContainer.classList.add('hidden')
 }
+
+const displayTasks = function (){
+    const taskDisplay = document.getElementById('taskDisplay')
+    console.log(taskDisplay)
+}
     
-export {taskInputs}
+export {taskInputs, displayTasks}

@@ -1,4 +1,4 @@
-import {taskInputs} from "./task.js"
+import {taskInputs, displayTasks} from "./task.js"
 import {projectInputDOM, projectInputReveal, projectDisplayDom} from "./project.js"
 
 // import taskInputs from "./taskInputs"
@@ -107,7 +107,7 @@ taskInputs()
 projectDisplayDom()
 projectInputDOM()
 projectInputReveal()
-
+displayTasks()
 
 }
 
