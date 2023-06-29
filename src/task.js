@@ -151,7 +151,16 @@ const clearTaskInput = function(){
 
 const displayTasks = function (){
     const taskDisplay = document.getElementById('taskDisplay')
-    console.log(taskDisplay)
+    const currentProject = returnCurrentProject()
+
+    while (taskDisplay.childElementCount>1){
+        taskDisplay.removeChild(taskDisplay.lastChild)
+    }
+    let currentProjectTasks = localStorage.getItem(currentProject)
+    if (currentProjectTasks!==''){
+        currentProjectTasks = JSON.parse(currentProjectTasks)
+    }
+    console.log(currentProjectTasks)
 }
     
 export {taskInputs, displayTasks}

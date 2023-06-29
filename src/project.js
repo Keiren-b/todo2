@@ -1,3 +1,5 @@
+import { displayTasks } from "./task"
+
 // This function creates the project input DOM. This is DOM Stuff only
 const projectInputDOM = function () {
     const content = document.getElementById('content')
@@ -115,7 +117,7 @@ const projectDisplayDom = () => {
         sidebar.appendChild(bar)
         bar.addEventListener('click',()=> {
             currentProject.name = event.target.textContent,
-            console.log(currentProject.name)
+            displayTasks()
             inputContainer.classList.remove('hidden')
         })
     // }
