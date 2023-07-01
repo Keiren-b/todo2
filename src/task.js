@@ -160,7 +160,43 @@ const displayTasks = function (){
     if (currentProjectTasks!==''){
         currentProjectTasks = JSON.parse(currentProjectTasks)
     }
+if(currentProject!==""){
+    // let keys = [];
+    // for (const item in Object.keys(currentProjectTasks)){
+    //     keys.push(item)
+    // }
+
+    for(let i=0; i<Object.keys(currentProjectTasks).length; i++){
     console.log(currentProjectTasks)
+    const card = document.createElement('div')
+    card.setAttribute('id','card')
+    taskDisplay.appendChild(card)
+
+    const cardTitle = document.createElement('div')
+    cardTitle.setAttribute('id','cardTitle')
+    cardTitle.textContent = Object.values(currentProjectTasks)[i].title
+    card.appendChild(cardTitle)
+
+    const cardDesc = document.createElement('div')
+    cardDesc.setAttribute('id','cardDesc')
+    cardDesc.textContent = Object.values(currentProjectTasks)[i].description
+    card.appendChild(cardDesc)
+
+    const cardDue = document.createElement('div')
+    cardDue.setAttribute('id','cardDue')
+    cardDue.textContent = Object.values(currentProjectTasks)[i].date
+    card.appendChild(cardDue)
+
+    const cardPriority = document.createElement('div')
+    cardPriority.setAttribute('id','cardPriority')
+    cardPriority.textContent = Object.values(currentProjectTasks)[i].priority
+    card.appendChild(cardPriority)
+
+    const cardNotes = document.createElement('div')
+    cardNotes.setAttribute('id','cardNotes')
+    cardNotes.textContent = Object.values(currentProjectTasks)[i].notes
+    card.appendChild(cardNotes)
+    }
 }
-    
+}
 export {taskInputs, displayTasks}
