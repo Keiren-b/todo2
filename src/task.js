@@ -108,7 +108,7 @@ const taskInputs = () => {
     submitBtn.textContent = "Add To-Do"
     submitBtn.setAttribute('id', 'printBtn')
     inputContainer.appendChild(submitBtn)
-    submitBtn.addEventListener('click', () => {taskStorage(collectInputs()),clearTaskInput()})
+    submitBtn.addEventListener('click', () => {taskStorage(collectInputs()),clearTaskInput(),displayTasks()})
 
 
     taskDisplay.appendChild(inputContainer)
@@ -156,6 +156,8 @@ const displayTasks = function (){
     while (taskDisplay.childElementCount>1){
         taskDisplay.removeChild(taskDisplay.lastChild)
     }
+
+
     let currentProjectTasks = localStorage.getItem(currentProject)
     if (currentProjectTasks!==''){
         currentProjectTasks = JSON.parse(currentProjectTasks)
