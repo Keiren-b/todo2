@@ -34,9 +34,31 @@ const editCurrentTask = function() {
 
     let targetParentText = targetParent.textContent
     let allTasks = JSON.parse(localStorage.getItem(returnCurrentProject()))
-    console.log(allTasks[targetParentText].title)
+
+    inputContainer.classList.remove('hidden')
+
+
+    const title = document.getElementById('title')
+    title.value = allTasks[targetParentText].title
+
+    const desc = document.getElementById('desc')
+    desc.value = allTasks[targetParentText].description
+
+    const due = document.getElementById('due')
+    due.value = allTasks[targetParentText].due
+
+    const priority = document.getElementById('priority')
+    priority.value = allTasks[targetParentText].priority
+
+    const notes = document.getElementById('notes')
+    notes.value = allTasks[targetParentText].notes
 
     
+
+    console.log(allTasks[targetParentText].title, allTasks[targetParentText].description)
+    console.log(allTasks)
+
+
 
     
 }

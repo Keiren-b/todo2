@@ -4,20 +4,6 @@ import collectInputs from "./newToDo"
 import taskStorage from "./storage.js"
 import taskInputs from "./taskInputs"
 
-// import readAndStore from "./storage"
-
-// const content = document.getElementById('content')
-// const btn = document.createElement('button')
-// btn.textContent = 'button'
-// content.appendChild(btn)
-
-// btn.addEventListener('click',function(){
-//     taskStorage(collectInputs())
-// })
-
-
-// // creates the dom inputs - all DOM related no logic
-// taskInputs()
 pageLoad()
 
 // test add to local storage
