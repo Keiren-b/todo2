@@ -32,7 +32,34 @@ const defaultTasks = function () {
             notes: 'there are so many notes notes'
         },
     }
-    localStorage.setItem('housework', JSON.stringify(housework))
+    localStorage.setItem('housework', JSON.stringify(housework))   
+
+    const finances = {
+        'super': {
+            title: 'super',
+            description: 'look at super contributions',
+            date: '2023-01-01',
+            priority: 'high',
+            notes: 'find a good one this time'
+        },
+        'Budget': {
+            title: 'Budget',
+            description: 'calculate the budget',
+            date: '2023-02-01',
+            priority: 'low',
+            notes: 'Dont forget the extra income source'
+        },
+        'Investing': {
+            title: 'Investing',
+            description: 'find 3 companies to invest in',
+            date: '2023-02-01',
+            priority: 'med',
+            notes: 'No oil stocks'
+        },
+    }
+    localStorage.setItem('Housework', JSON.stringify(housework)) 
+    localStorage.setItem('Finances', JSON.stringify(finances))   
+
 }
 
 defaultTasks()

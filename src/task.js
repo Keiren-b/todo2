@@ -25,6 +25,7 @@ const deleteCurrentTask = function () {
     delete allTasks[targetParentText]
     localStorage.setItem(returnCurrentProject(),JSON.stringify(allTasks))
     console.log(localStorage.getItem(returnCurrentProject()))
+    displayTasks()
 }
 
 // const storeEdit = function(){
