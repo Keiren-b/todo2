@@ -46,6 +46,9 @@ const pageLoad = function(){
     })
 
 
+
+
+
     const taskDisplay = document.createElement('div')
     taskDisplay.setAttribute('id', 'taskDisplay')
     taskDisplay.textContent = 'This is my task display'

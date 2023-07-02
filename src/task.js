@@ -27,7 +27,15 @@ const deleteCurrentTask = function () {
     console.log(localStorage.getItem(returnCurrentProject()))
 }
 
+// const storeEdit = function(){
+
+// }
+
 const editCurrentTask = function() {
+
+    const editTaskBtn = document.getElementById('editTaskBtn')
+    editTaskBtn.classList.remove('hidden')
+
     let x = event.currentTarget.parentNode
     let xParents = getSiblings(x)
     let targetParent = xParents[0]
@@ -36,7 +44,6 @@ const editCurrentTask = function() {
     let allTasks = JSON.parse(localStorage.getItem(returnCurrentProject()))
 
     inputContainer.classList.remove('hidden')
-
 
     const title = document.getElementById('title')
     title.value = allTasks[targetParentText].title
@@ -53,10 +60,13 @@ const editCurrentTask = function() {
     const notes = document.getElementById('notes')
     notes.value = allTasks[targetParentText].notes
 
-    
+    // ********************
 
-    console.log(allTasks[targetParentText].title, allTasks[targetParentText].description)
-    console.log(allTasks)
+    delete allTasks[targetParentText]
+    localStorage.setItem(returnCurrentProject(),JSON.stringify(allTasks))
+
+    // console.log(allTasks[targetParentText].title, allTasks[targetParentText].description)
+    // console.log(allTasks)
 
 
 
@@ -173,6 +183,13 @@ const taskInputs = () => {
     inputContainer.appendChild(submitBtn)
     submitBtn.addEventListener('click', () => { taskStorage(collectInputs()), clearTaskInput(), displayTasks() })
 
+    const editTaskBtn = document.createElement('button')
+    editTaskBtn.textContent = 'Edit Project'
+    editTaskBtn.setAttribute('id','editTaskBtn')
+    inputContainer.appendChild(editTaskBtn)
+    editTaskBtn.classList.add('hidden')
+    editTaskBtn.addEventListener('click', () => { taskStorage(collectInputs()), clearTaskInput(), displayTasks() })
+    
 
     taskDisplay.appendChild(inputContainer)
     testInputValue()
