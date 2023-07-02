@@ -19,11 +19,26 @@ const deleteCurrentTask = function () {
     let x = event.currentTarget.parentNode
     let xParents = getSiblings(x)
     let targetParent = xParents[0]
+
     let targetParentText = targetParent.textContent
     let allTasks = JSON.parse(localStorage.getItem(returnCurrentProject()))
     delete allTasks[targetParentText]
     localStorage.setItem(returnCurrentProject(),JSON.stringify(allTasks))
     console.log(localStorage.getItem(returnCurrentProject()))
+}
+
+const editCurrentTask = function() {
+    let x = event.currentTarget.parentNode
+    let xParents = getSiblings(x)
+    let targetParent = xParents[0]
+
+    let targetParentText = targetParent.textContent
+    let allTasks = JSON.parse(localStorage.getItem(returnCurrentProject()))
+    console.log(allTasks[targetParentText].title)
+
+    
+
+    
 }
 
 // constructor for new todo
@@ -233,6 +248,7 @@ const displayTasks = function () {
             edit.setAttribute('id', 'edit')
             edit.textContent = 'edit'
             editsContainer.appendChild(edit)
+            edit.addEventListener('click', ()=> {editCurrentTask()})
 
             const deleteTask = document.createElement('div')
             deleteTask.setAttribute('id', 'deleteTask')
