@@ -117,7 +117,7 @@ const projectDisplayDom = () => {
         sidebar.appendChild(bar)
         bar.addEventListener('click',()=> {
             currentProject.name = event.target.textContent,
-            displayTasks()
+            displayTasks(),
             inputContainer.classList.remove('hidden')
         })
     // }

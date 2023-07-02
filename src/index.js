@@ -24,21 +24,21 @@ pageLoad()
 
 const defaultTasks = function () {
     const housework = {
-        washing: {
+        'wash dishes': {
             title: 'wash dishes',
             description: 'wash the dishes',
             date: '2023-01-01',
             priority: 'high',
             notes: 'there are no notes'
         },
-        cooking: {
+        'cook dinner': {
             title: 'cook dinner',
             description: 'cook the dinner',
             date: '2023-02-01',
             priority: 'low',
             notes: 'there are some notes'
         },
-        yard: {
+        'cut grass': {
             title: 'cut grass',
             description: 'cut the grass',
             date: '2023-02-01',

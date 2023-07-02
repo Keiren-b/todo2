@@ -19,6 +19,10 @@
     flex-direction: column;
 }
 
+.highlight {
+    background-color: blueviolet;
+}
+
 .projectModal {
     /* display: none; Hidden by default */
     position: fixed; /* Stay in place */

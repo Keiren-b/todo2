@@ -1,5 +1,31 @@
 import { returnCurrentProject } from "./project.js"
 
+const currentTask = {
+    name: ''
+}
+
+const returnCurrentTask = function () {
+    return currentTask.name
+}
+
+function getSiblings (elem) {
+    return Array.from(elem.parentNode.children).filter(function (sibling) {
+        return sibling !== elem;
+    });
+}
+
+const deleteCurrentTask = function () {
+
+    let x = event.currentTarget.parentNode
+    let xParents = getSiblings(x)
+    let targetParent = xParents[0]
+    let targetParentText = targetParent.textContent
+    let allTasks = JSON.parse(localStorage.getItem(returnCurrentProject()))
+    delete allTasks[targetParentText]
+    localStorage.setItem(returnCurrentProject(),JSON.stringify(allTasks))
+    console.log(localStorage.getItem(returnCurrentProject()))
+}
+
 // constructor for new todo
 function Todo(title, description, dueDate, priority, notes) {
     this.title = title;
@@ -108,7 +134,7 @@ const taskInputs = () => {
     submitBtn.textContent = "Add To-Do"
     submitBtn.setAttribute('id', 'printBtn')
     inputContainer.appendChild(submitBtn)
-    submitBtn.addEventListener('click', () => {taskStorage(collectInputs()),clearTaskInput(),displayTasks()})
+    submitBtn.addEventListener('click', () => { taskStorage(collectInputs()), clearTaskInput(), displayTasks() })
 
 
     taskDisplay.appendChild(inputContainer)
@@ -122,83 +148,102 @@ function taskStorage(x) {
         return
     }
     else {
-        if (localStorage.getItem(currentProject)==''){
+        if (localStorage.getItem(currentProject) == '') {
             let newTaskTitle = x.title
-            let newTask = {[newTaskTitle]:x}
-            localStorage.setItem(currentProject,JSON.stringify(newTask))
+            let newTask = { [newTaskTitle]: x }
+            localStorage.setItem(currentProject, JSON.stringify(newTask))
             console.log(localStorage)
         }
-        else{
+        else {
             let allTasks = JSON.parse(localStorage.getItem(currentProject))
             let newTaskTitle = x.title
-            let newTask = {[newTaskTitle]:x}
-            allTasks = Object.assign(allTasks,newTask)
-            localStorage.setItem(currentProject,JSON.stringify(allTasks))
+            let newTask = { [newTaskTitle]: x }
+            allTasks = Object.assign(allTasks, newTask)
+            localStorage.setItem(currentProject, JSON.stringify(allTasks))
         }
     }
 
 }
 
-const clearTaskInput = function(){
+const clearTaskInput = function () {
     const inputContainer = document.getElementById('inputContainer')
-    for(let i = 0; i<inputContainer.childElementCount; i++){
-        if(inputContainer.children[i].nodeName!=="LABEL"){
-            inputContainer.children[i].value=''
+    for (let i = 0; i < inputContainer.childElementCount; i++) {
+        if (inputContainer.children[i].nodeName !== "LABEL") {
+            inputContainer.children[i].value = ''
         }
     }
     inputContainer.classList.add('hidden')
 }
 
-const displayTasks = function (){
+const displayTasks = function () {
     const taskDisplay = document.getElementById('taskDisplay')
     const currentProject = returnCurrentProject()
 
-    while (taskDisplay.childElementCount>1){
+    while (taskDisplay.childElementCount > 1) {
         taskDisplay.removeChild(taskDisplay.lastChild)
     }
 
 
     let currentProjectTasks = localStorage.getItem(currentProject)
-    if (currentProjectTasks!==''){
+    if (currentProjectTasks !== '') {
         currentProjectTasks = JSON.parse(currentProjectTasks)
     }
-if(currentProject!==""){
-    // let keys = [];
-    // for (const item in Object.keys(currentProjectTasks)){
-    //     keys.push(item)
-    // }
+    if (currentProject !== "") {
+        // let keys = [];
+        // for (const item in Object.keys(currentProjectTasks)){
+        //     keys.push(item)
+        // }
 
-    for(let i=0; i<Object.keys(currentProjectTasks).length; i++){
-    console.log(currentProjectTasks)
-    const card = document.createElement('div')
-    card.setAttribute('id','card')
-    taskDisplay.appendChild(card)
+        for (let i = 0; i < Object.keys(currentProjectTasks).length; i++) {
+            const card = document.createElement('div')
+            card.setAttribute('id', 'card')
+            taskDisplay.appendChild(card)
 
-    const cardTitle = document.createElement('div')
-    cardTitle.setAttribute('id','cardTitle')
-    cardTitle.textContent = Object.values(currentProjectTasks)[i].title
-    card.appendChild(cardTitle)
+            const cardTitle = document.createElement('div')
+            cardTitle.setAttribute('id', 'cardTitle')
+            cardTitle.textContent = Object.values(currentProjectTasks)[i].title
+            card.appendChild(cardTitle)
 
-    const cardDesc = document.createElement('div')
-    cardDesc.setAttribute('id','cardDesc')
-    cardDesc.textContent = Object.values(currentProjectTasks)[i].description
-    card.appendChild(cardDesc)
+            const cardDesc = document.createElement('div')
+            cardDesc.setAttribute('id', 'cardDesc')
+            cardDesc.textContent = Object.values(currentProjectTasks)[i].description
+            card.appendChild(cardDesc)
 
-    const cardDue = document.createElement('div')
-    cardDue.setAttribute('id','cardDue')
-    cardDue.textContent = Object.values(currentProjectTasks)[i].date
-    card.appendChild(cardDue)
+            const cardDue = document.createElement('div')
+            cardDue.setAttribute('id', 'cardDue')
+            cardDue.textContent = Object.values(currentProjectTasks)[i].date
+            card.appendChild(cardDue)
 
-    const cardPriority = document.createElement('div')
-    cardPriority.setAttribute('id','cardPriority')
-    cardPriority.textContent = Object.values(currentProjectTasks)[i].priority
-    card.appendChild(cardPriority)
+            const cardPriority = document.createElement('div')
+            cardPriority.setAttribute('id', 'cardPriority')
+            cardPriority.textContent = Object.values(currentProjectTasks)[i].priority
+            card.appendChild(cardPriority)
 
-    const cardNotes = document.createElement('div')
-    cardNotes.setAttribute('id','cardNotes')
-    cardNotes.textContent = Object.values(currentProjectTasks)[i].notes
-    card.appendChild(cardNotes)
+            const cardNotes = document.createElement('div')
+            cardNotes.setAttribute('id', 'cardNotes')
+            cardNotes.textContent = Object.values(currentProjectTasks)[i].notes
+            card.appendChild(cardNotes)
+
+
+            const editsContainer = document.createElement('div')
+            editsContainer.setAttribute('id', 'edits')
+            card.appendChild(editsContainer)
+
+            const edit = document.createElement('div')
+            edit.setAttribute('id', 'edit')
+            edit.textContent = 'edit'
+            editsContainer.appendChild(edit)
+
+            const deleteTask = document.createElement('div')
+            deleteTask.setAttribute('id', 'deleteTask')
+            deleteTask.textContent = 'X'
+            editsContainer.appendChild(deleteTask)
+            deleteTask.addEventListener('click', () => {deleteCurrentTask()})
+        }
     }
 }
-}
-export {taskInputs, displayTasks}
+
+
+
+
+export { taskInputs, displayTasks }
