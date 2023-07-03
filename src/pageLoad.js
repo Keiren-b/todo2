@@ -10,7 +10,7 @@ const pageLoad = function(){
     const content = document.getElementById('content')
 
     const header = document.createElement('div')
-    header.textContent = 'TO-DO'
+    header.textContent = 'This is my header'
     header.setAttribute('id', 'header')
     content.appendChild(header)
     header.classList.add('container')

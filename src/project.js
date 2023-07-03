@@ -3,7 +3,6 @@ import { displayTasks } from "./task"
 // This function creates the project input DOM. This is DOM Stuff only
 const projectInputDOM = function () {
     const content = document.getElementById('content')
-    const projectMenu = document.getElementById('projectMenu')
     const projectModal = document.createElement('div')
     projectModal.setAttribute('id', 'projectModal')
     projectModal.classList.add('projectModal')
@@ -38,7 +37,6 @@ const projectInputDOM = function () {
     addBtn.textContent = 'Add'
     addBtn.addEventListener('click', () => {storeProject(),projectDisplayDom()})
     modalInputContainer.appendChild(addBtn)
-
 }
 
 // this function reveals or hides the project inputs by adding/removing hidden class *** NAME CHANGED
