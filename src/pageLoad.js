@@ -26,19 +26,36 @@ const pageLoad = function(){
     sidebar.textContent = 'This is my sidebar'
     taskContainer.appendChild(sidebar)
 
-    const projectMenu = document.createElement('div')
-    projectMenu.setAttribute('id','projectMenu')
-    sidebar.appendChild(projectMenu)
+    const projectList = document.createElement('div')
+    projectList.setAttribute('id', 'projectList')
+    projectList.textContent = 'This is my projectList'
+    sidebar.appendChild(projectList)
+
+    const projectAddContainer = document.createElement('div')
+    projectAddContainer.setAttribute('id', 'projectAddContainer')
+    projectAddContainer.textContent = 'This is my projectAddContainer'
+    sidebar.appendChild(projectAddContainer)
+
+    // const projectAddContainer = document.createElement('div')
+    // projectAddContainer.setAttribute('id', 'projectAddContainer')
+    // projectAddContainer.textContent = 'This is my projectAddContainer'
+    // taskContainer.appendChild(projectAddContainer)
+
+
+
+    // const projectMenu = document.createElement('div')
+    // projectMenu.setAttribute('id','projectMenu')
+    // sidebar.appendChild(projectMenu)
 
     const newProjectBtn = document.createElement('button')
     newProjectBtn.textContent = "Add New Project"
     newProjectBtn.setAttribute('id','newProjectBtn')
-    projectMenu.appendChild(newProjectBtn)
+    projectAddContainer.appendChild(newProjectBtn)
 
     const newTaskBtn = document.createElement('button')
     newTaskBtn.textContent = "Add New Task"
     newTaskBtn.setAttribute('id','newTaskBtn')
-    projectMenu.appendChild(newTaskBtn)
+    projectAddContainer.appendChild(newTaskBtn)
     newTaskBtn.classList.add('hidden')
     newTaskBtn.addEventListener('click',()=>{
         const inputContainer=document.getElementById('inputContainer')
