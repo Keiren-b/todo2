@@ -48,9 +48,10 @@ const pageLoad = function(){
     // sidebar.appendChild(projectMenu)
 
     const newProjectBtn = document.createElement('button')
+    projectAddContainer.appendChild(newProjectBtn)
     newProjectBtn.textContent = "Add New Project"
     newProjectBtn.setAttribute('id','newProjectBtn')
-    projectAddContainer.appendChild(newProjectBtn)
+    
 
     const newTaskBtn = document.createElement('button')
     newTaskBtn.textContent = "Add New Task"

@@ -104,7 +104,7 @@ const storeProject = function () {
 const projectDisplayDom = () => {
     const sidebar = document.getElementById('sidebar')
 
-    while(sidebar.childElementCount>1){
+    while(sidebar.childElementCount>2){
         sidebar.removeChild(sidebar.lastChild)
     }
 
