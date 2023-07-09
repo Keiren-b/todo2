@@ -102,11 +102,15 @@ const storeProject = function () {
 
 
 const projectDisplayDom = () => {
-    const sidebar = document.getElementById('sidebar')
+    // const sidebar = document.getElementById('sidebar')
+    const projectList = document.getElementById('projectList')
 
-    while(sidebar.childElementCount>2){
-        sidebar.removeChild(sidebar.lastChild)
-    }
+    // while(sidebar.childElementCount>2){
+         // sidebar.removeChild(sidebar.lastChild)
+    // }
+    while(projectList.childElementCount>2){
+         projectList.removeChild(projectList.lastChild)
+    }    
 
     for (let i = 0; i <= localStorage.length; i++) {
         const title = localStorage.key(i)
@@ -114,7 +118,8 @@ const projectDisplayDom = () => {
         const inputContainer = document.getElementById('inputContainer')
         bar.setAttribute('id','bar')
         bar.textContent = title
-        sidebar.appendChild(bar)
+        // sidebar.appendChild(bar)
+        projectList.appendChild(bar)
         bar.addEventListener('click',()=> {
             currentProject.name = event.target.textContent,
             displayTasks(),

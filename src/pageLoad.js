@@ -1,6 +1,10 @@
 import {taskInputs, displayTasks} from "./task.js"
 import {projectInputDOM, projectInputReveal, projectDisplayDom} from "./project.js"
 
+
+import './style.css';
+import Icon from './icon.png';
+
 // import taskInputs from "./taskInputs"
 // import projectInput from "./projectInput"
 // import newProject from "./newProject"
@@ -10,10 +14,14 @@ const pageLoad = function(){
     const content = document.getElementById('content')
 
     const header = document.createElement('div')
-    header.textContent = 'This is my header'
+    header.textContent = 'To-Do'
     header.setAttribute('id', 'header')
     content.appendChild(header)
     header.classList.add('container')
+
+    const myIcon = new Image();
+    myIcon.src = Icon;
+    header.appendChild(myIcon)
 
     const taskContainer = document.createElement('div')
     taskContainer.setAttribute('id', 'taskContainer')

@@ -1,6 +1,23 @@
+.body {
+  background-color: whitesmoke;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
 .container {
     background-color: lightcoral;
 }
+
+#header {
+    height: 10vh;
+    color: whitesmoke;
+    font-size: 5vh;
+    display: block;
+    background-color: lightseagreen;
+}
+
+/* #pencil {
+    height: 3vh;
+} */
 
 .hidden {
     display: none;
