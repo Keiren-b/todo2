@@ -14,14 +14,18 @@ const pageLoad = function(){
     const content = document.getElementById('content')
 
     const header = document.createElement('div')
-    header.textContent = 'To-Do'
+    const textContainer = document.createElement('div')
+    const myIcon = new Image();
+    myIcon.src = Icon;
+    myIcon.setAttribute('id','pencil')
+    header.appendChild(myIcon)
+    header.appendChild(textContainer)
+    textContainer.textContent = 'To-Do'
     header.setAttribute('id', 'header')
     content.appendChild(header)
     header.classList.add('container')
 
-    const myIcon = new Image();
-    myIcon.src = Icon;
-    header.appendChild(myIcon)
+
 
     const taskContainer = document.createElement('div')
     taskContainer.setAttribute('id', 'taskContainer')

@@ -11,13 +11,16 @@
     height: 10vh;
     color: whitesmoke;
     font-size: 5vh;
-    display: block;
+    display: flex;
+    gap: 2vw;
     background-color: lightseagreen;
 }
 
-/* #pencil {
-    height: 3vh;
-} */
+ #pencil {
+    height: 5vh;
+    width: auto;
+    margin:25px;
+}
 
 .hidden {
     display: none;
