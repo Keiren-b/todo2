@@ -293,7 +293,10 @@ const displayTasks = function () {
             deleteTask.setAttribute('id', 'deleteTask')
             deleteTask.textContent = 'X'
             editsContainer.appendChild(deleteTask)
-            deleteTask.addEventListener('click', () => {deleteCurrentTask()})
+            deleteTask.addEventListener('click', () => {
+                deleteCurrentTask(),
+                displayTasks()
+            })
         }
     }
 }
