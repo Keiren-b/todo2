@@ -29,23 +29,18 @@ const pageLoad = function(){
 
     const taskContainer = document.createElement('div')
     taskContainer.setAttribute('id', 'taskContainer')
-    // taskContainer.textContent = 'This is my task container'
-    taskContainer.style.backgroundColor = 'grey'
     content.appendChild(taskContainer)
 
     const sidebar = document.createElement('div')
     sidebar.setAttribute('id', 'sidebar')
-    sidebar.textContent = 'This is my sidebar'
     taskContainer.appendChild(sidebar)
 
     const projectList = document.createElement('div')
     projectList.setAttribute('id', 'projectList')
-    projectList.textContent = 'This is my projectList'
     sidebar.appendChild(projectList)
 
     const projectAddContainer = document.createElement('div')
     projectAddContainer.setAttribute('id', 'projectAddContainer')
-    projectAddContainer.textContent = 'This is my projectAddContainer'
     sidebar.appendChild(projectAddContainer)
 
     // const projectAddContainer = document.createElement('div')
@@ -81,7 +76,6 @@ const pageLoad = function(){
 
     const taskDisplay = document.createElement('div')
     taskDisplay.setAttribute('id', 'taskDisplay')
-    taskDisplay.textContent = 'This is my task display'
     taskContainer.appendChild(taskDisplay)
 
     const clearBtn = document.createElement('button')
