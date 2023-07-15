@@ -1,4 +1,6 @@
 import { returnCurrentProject } from "./project.js"
+import { format } from 'date-fns'
+
 
 const currentTask = {
     name: ''
@@ -261,9 +263,13 @@ const displayTasks = function () {
             checkbox.addEventListener('click', ()=>{
                 if (checkbox.checked === true) {
                     cardTitle.classList.add('checked')
+                    cardDue.classList.add('checked')
+                    cardPriority.classList.add('checked')
                 }
                 else if (checkbox.checked ===false) {
                     cardTitle.classList.remove('checked')
+                    cardDue.classList.remove('checked')
+                    cardPriority.classList.remove('checked')
                 }
             })
 
@@ -279,7 +285,8 @@ const displayTasks = function () {
 
             const cardDue = document.createElement('div')
             cardDue.setAttribute('id', 'cardDue')
-            cardDue.textContent = Object.values(currentProjectTasks)[i].date
+            cardDue.textContent = format(new Date(Object.values(currentProjectTasks)[i].date), "MMM do y")
+            let date = Object.values(currentProjectTasks)[i].date
             card.appendChild(cardDue)
 
             const cardPriority = document.createElement('div')
