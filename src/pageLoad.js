@@ -91,44 +91,7 @@ const pageLoad = function(){
     testBtns.appendChild(clearBtn)
     testBtns.appendChild(pp)
 
-    // This is DOM Stuff only
-// const projectInputDOM = function(){
-//     const content = document.getElementById('content')
-//     const projectModal = document.createElement('div')
-//     projectModal.setAttribute('id','projectModal')
-//     projectModal.classList.add('projectModal')
-//     projectModal.classList.add('hidden')
-//     content.appendChild(projectModal)
-
-//     const modalHeader = document.createElement('div')
-//     modalHeader.setAttribute('id','modalHeader')
-//     modalHeader.textContent = 'Add New Project'
-//     projectModal.appendChild(modalHeader)
-
-//     const modalInputContainer = document.createElement('div')
-//     modalInputContainer.setAttribute('id','modalInputContainer')
-//     projectModal.appendChild(modalInputContainer)
-
-//     const projectTitle = document.createElement("input");
-//     projectTitle.name = "Title";
-//     projectTitle.setAttribute('id', 'projectTitle')
-//     const projectTitleLabel = document.createElement("Label");
-//     projectTitleLabel.setAttribute("for", projectTitle);
-//     projectTitleLabel.innerHTML = "Title: ";
-//     modalInputContainer.appendChild(projectTitleLabel);
-//     modalInputContainer.appendChild(projectTitle)
-
-//     const cancelBtn = document.createElement('button')
-//     cancelBtn.setAttribute('id','cancelBtn')
-//     cancelBtn.textContent = 'Cancel'
-//     modalInputContainer.appendChild(cancelBtn)
-
-//     const addBtn = document.createElement('button')
-//     addBtn.setAttribute('id','addBtn')
-//     addBtn.textContent = 'Add'
-//     addBtn.addEventListener('click',()=>newProject())
-//     modalInputContainer.appendChild(addBtn)
-// }
+    
 
 taskInputs()
 projectDisplayDom()

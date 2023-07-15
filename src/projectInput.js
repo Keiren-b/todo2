@@ -1,26 +1,23 @@
 const projectInput = function(){
-const projectModal = document.getElementById('projectModal')
+const projectModalContainer = document.getElementById('projectModalContainer')
 const newProjectBtn = document.getElementById('newProjectBtn')
 const cancelBtn = document.getElementById('cancelBtn')
 
 
 // When the user clicks on the button, open the modal
 newProjectBtn.onclick = function() {
-    // projectModal.style.display = "block";
-    projectModal.classList.remove('hidden')
+    projectModalContainer.classList.remove('hidden')
   }
   
   // When the user clicks on <span> (x), close the modal
   cancelBtn.onclick = function() {
-    // projectModal.style.display = "none";
-    projectModal.classList.add('hidden')
+    projectModalContainer.classList.add('hidden')
   }
   
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {
-    if (event.target == projectModal) {
-    //   projectModal.style.display = "none";
-    projectModal.classList.add('hidden')
+    if (event.target == projectModalContainer) {
+    projectModalContainer.classList.add('hidden')
     }
 }
 }

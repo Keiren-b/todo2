@@ -3,28 +3,33 @@ import { displayTasks } from "./task"
 // This function creates the project input DOM. This is DOM Stuff only
 const projectInputDOM = function () {
     const content = document.getElementById('content')
-    const projectModal = document.createElement('div')
-    projectModal.setAttribute('id', 'projectModal')
-    projectModal.classList.add('projectModal')
-    projectModal.classList.add('hidden')
-    content.appendChild(projectModal)
+    const projectModalContainer = document.createElement('div')
+    projectModalContainer.setAttribute('id', 'projectModalContainer')
+    projectModalContainer.classList.add('projectModal')
+    projectModalContainer.classList.add('hidden')
+    content.appendChild(projectModalContainer)
+
+    const modalBox = document.createElement('div')
+    modalBox.setAttribute('id','modalBox')
+    projectModalContainer.appendChild(modalBox)
 
     const modalHeader = document.createElement('div')
     modalHeader.setAttribute('id', 'modalHeader')
-    modalHeader.textContent = 'Add New Project'
-    projectModal.appendChild(modalHeader)
+    modalHeader.textContent = 'Create a New Project'
+    modalBox.appendChild(modalHeader)
 
     const modalInputContainer = document.createElement('div')
     modalInputContainer.setAttribute('id', 'modalInputContainer')
-    projectModal.appendChild(modalInputContainer)
+    modalBox.appendChild(modalInputContainer)
 
     const projectTitle = document.createElement("input");
     projectTitle.name = "Title";
     projectTitle.setAttribute('id', 'projectTitle')
-    const projectTitleLabel = document.createElement("Label");
-    projectTitleLabel.setAttribute("for", projectTitle);
-    projectTitleLabel.innerHTML = "Title: ";
-    modalInputContainer.appendChild(projectTitleLabel);
+    projectTitle.setAttribute('placeholder','Name Your Project')
+    // const projectTitleLabel = document.createElement("Label");
+    // projectTitleLabel.setAttribute("for", projectTitle);
+    // projectTitleLabel.innerHTML = "Title: ";
+    // modalInputContainer.appendChild(projectTitleLabel);
     modalInputContainer.appendChild(projectTitle)
 
     const cancelBtn = document.createElement('button')
@@ -41,7 +46,7 @@ const projectInputDOM = function () {
 
 // this function reveals or hides the project inputs by adding/removing hidden class *** NAME CHANGED
 const projectInputReveal = function () {
-    const projectModal = document.getElementById('projectModal')
+    const projectModalContainer = document.getElementById('projectModalContainer')
     const newTaskBtn = document.getElementById('newTaskBtn')
     const newProjectBtn = document.getElementById('newProjectBtn')
     const cancelBtn = document.getElementById('cancelBtn')
@@ -49,23 +54,20 @@ const projectInputReveal = function () {
 
     // When the user clicks on the button, open the modal
     newProjectBtn.onclick = function () {
-        // projectModal.style.display = "block";
-        projectModal.classList.remove('hidden')
+        projectModalContainer.classList.remove('hidden')
         newTaskBtn.classList.remove('hidden')
 
     }
 
     // When the user clicks on <span> (x), close the modal
     cancelBtn.onclick = function () {
-        // projectModal.style.display = "none";
-        projectModal.classList.add('hidden')
+        projectModalContainer.classList.add('hidden')
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
-        if (event.target == projectModal) {
-            //   projectModal.style.display = "none";
-            projectModal.classList.add('hidden')
+        if (event.target == projectModalContainer) {
+            projectModalContainer.classList.add('hidden')
         }
     }
 }
@@ -78,7 +80,7 @@ const returnCurrentProject = function () {
 }
 
 const storeProject = function () {
-    let projectModal = document.getElementById('projectModal')
+    let projectModalContainer = document.getElementById('projectModalContainer')
     let projectName = document.getElementById('projectTitle')
 
     if (event.currentTarget.getAttribute('id') == 'addBtn') {
@@ -94,8 +96,8 @@ const storeProject = function () {
             currentProject.name = projectName.value
         }
     }
-    projectModal.classList.add('hidden')
-    projectModal.classList.remove('projectModal')
+    projectModalContainer.classList.add('hidden')
+    projectModalContainer.classList.remove('projectModal')
     inputContainer.classList.remove('hidden')
 
     // return activeProject
