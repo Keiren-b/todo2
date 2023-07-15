@@ -3,6 +3,15 @@
   font-family:'Trebuchet MS', sans-serif
 }
 
+input,
+textarea,
+select,
+button {
+    border: solid #dbdbdb;
+    border-radius:5px;
+    font-family: 'Trebuchet MS', sans-serif
+}
+
 .hidden {
     display: none;
 }
@@ -75,8 +84,23 @@
 }
 
 #inputContainer {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-rows: 30px,60px,30px,30px,60px,60px;
+    grid-template-columns: repeat(2, 150px);
+    row-gap: 8px;
+    align-items: center;
+    width: 400px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em;
+    background: #ffffff;
+    color: #333333;
+    /* border: solid rgb(192, 192, 192); */
+    border-radius: 24px;
+    box-shadow: 5px 10px 40px rgb(0 0 0 / 50%);
+    text-align: center;
 }
 
 /* .highlight {
@@ -132,7 +156,8 @@ border-radius: 5px;
 }
 
 #modalInputContainer > button {
-    border: solid #dbdbdb
+    border: solid #dbdbdb;
+    border-radius:5px
 }
 
 #projectTitle {
@@ -145,5 +170,18 @@ border-radius: 5px;
 }
 
 #card {
+    display:grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
+#edits {
+    display: flex;
+    gap: 10px
+}
+
+.checked {
+    text-decoration:line-through;
 }

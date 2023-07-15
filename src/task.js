@@ -219,6 +219,7 @@ function taskStorage(x) {
 
 }
 
+
 const clearTaskInput = function () {
     const inputContainer = document.getElementById('inputContainer')
     for (let i = 0; i < inputContainer.childElementCount; i++) {
@@ -253,6 +254,19 @@ const displayTasks = function () {
             card.setAttribute('id', 'card')
             taskDisplay.appendChild(card)
 
+            const checkbox = document.createElement('input')
+            checkbox.type = 'checkbox'
+            checkbox.setAttribute('id', 'checkBox')
+            card.appendChild(checkbox)
+            checkbox.addEventListener('click', ()=>{
+                if (checkbox.checked === true) {
+                    cardTitle.classList.add('checked')
+                }
+                else if (checkbox.checked ===false) {
+                    cardTitle.classList.remove('checked')
+                }
+            })
+
             const cardTitle = document.createElement('div')
             cardTitle.setAttribute('id', 'cardTitle')
             cardTitle.textContent = Object.values(currentProjectTasks)[i].title
@@ -261,7 +275,7 @@ const displayTasks = function () {
             const cardDesc = document.createElement('div')
             cardDesc.setAttribute('id', 'cardDesc')
             cardDesc.textContent = Object.values(currentProjectTasks)[i].description
-            card.appendChild(cardDesc)
+            // card.appendChild(cardDesc)
 
             const cardDue = document.createElement('div')
             cardDue.setAttribute('id', 'cardDue')
@@ -276,7 +290,7 @@ const displayTasks = function () {
             const cardNotes = document.createElement('div')
             cardNotes.setAttribute('id', 'cardNotes')
             cardNotes.textContent = Object.values(currentProjectTasks)[i].notes
-            card.appendChild(cardNotes)
+            // card.appendChild(cardNotes)
 
 
             const editsContainer = document.createElement('div')

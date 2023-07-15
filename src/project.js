@@ -5,13 +5,15 @@ const projectInputDOM = function () {
     const content = document.getElementById('content')
     const projectModalContainer = document.createElement('div')
     projectModalContainer.setAttribute('id', 'projectModalContainer')
-    projectModalContainer.classList.add('projectModal')
     projectModalContainer.classList.add('hidden')
+    // projectModalContainer.classList.add('projectModal')
     content.appendChild(projectModalContainer)
+    
 
     const modalBox = document.createElement('div')
     modalBox.setAttribute('id','modalBox')
     projectModalContainer.appendChild(modalBox)
+
 
     const modalHeader = document.createElement('div')
     modalHeader.setAttribute('id', 'modalHeader')
@@ -55,6 +57,9 @@ const projectInputReveal = function () {
     // When the user clicks on the button, open the modal
     newProjectBtn.onclick = function () {
         projectModalContainer.classList.remove('hidden')
+        projectModalContainer.classList.add('projectModal')
+        modalBox.classList.remove('hidden')
+
         newTaskBtn.classList.remove('hidden')
 
     }
@@ -125,8 +130,8 @@ const projectDisplayDom = () => {
         projectList.appendChild(bar)
         bar.addEventListener('click',()=> {
             currentProject.name = event.target.textContent,
-            displayTasks(),
-            inputContainer.classList.remove('hidden')
+            displayTasks()
+            inputContainer.classList.add('hidden')
         })
     // }
 }
