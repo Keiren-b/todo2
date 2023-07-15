@@ -95,6 +95,7 @@ const storeProject = function () {
         }
     }
     projectModal.classList.add('hidden')
+    projectModal.classList.remove('projectModal')
     inputContainer.classList.remove('hidden')
 
     // return activeProject
