@@ -112,19 +112,33 @@
     padding: 2em;
     background: #ffffff;
     color: #333333;
-    border: solid black;
+    /* border: solid rgb(192, 192, 192); */
     border-radius: 24px;
+    box-shadow: 5px 10px 40px rgb(0 0 0 / 50%);
     text-align: center;
 }
   
 
  #modalInputContainer{
      margin-top: 20px;
+     display: grid;
+     grid-template: 30px 30px/50% 50%;
+     row-gap: 10px;
+     column-gap: 10px;
  }
  #modalInputContainer > input {
-border: solid grey;
+border: solid #dbdbdb;
 border-radius: 5px;
- }
+}
+
+#modalInputContainer > button {
+    border: solid #dbdbdb
+}
+
+#projectTitle {
+    grid-column: 1/3;
+}
+
 
 .sidebarSelect{
     background-color: cornsilk;
