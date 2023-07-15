@@ -48,6 +48,7 @@ button {
 #sidebar {
     background-color: rgb(188, 220, 240);
     font-family: 'Trebuchet MS';
+    width: 100%
 }
 
 #taskDisplay {
@@ -58,7 +59,7 @@ button {
 #taskContainer {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     background-color:  whitesmoke;
 }
 
@@ -169,12 +170,23 @@ border-radius: 5px;
     background-color: cornsilk;
 }
 
+#taskDisplay {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    margin: 30px 0px 0px 30px;
+}
+
 #card {
     display:grid;
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+    height:80px;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align: left;
+    background-color: gray;
+
 }
 
 #edits {
