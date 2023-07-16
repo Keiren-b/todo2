@@ -9,7 +9,8 @@ select,
 button {
     border: solid #dbdbdb;
     border-radius:5px;
-    font-family: 'Trebuchet MS', sans-serif
+    font-family: 'Trebuchet MS', sans-serif;
+    height: 24px
 }
 
 .hidden {
@@ -86,12 +87,14 @@ button {
 
 #inputContainer {
     display: grid;
-    grid-template-rows: 30px,60px,30px,30px,60px,60px;
+    /* grid-template-rows: 500px,30px,60px,30px,30px,60px,60px; */
     grid-template-columns: repeat(2, 150px);
+    column-gap: 20px;
     row-gap: 8px;
     align-items: center;
+    justify-content: center;
     width: 400px;
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -102,6 +105,21 @@ button {
     border-radius: 24px;
     box-shadow: 5px 10px 40px rgb(0 0 0 / 50%);
     text-align: center;
+}
+
+#inputContainer > label {
+    text-align: right;
+    padding-right: 5px;
+}
+
+#inputContainer > button {
+    height:32px
+}
+.taskHeader {
+    grid-column: 1/3;
+    height: 50px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 /* .highlight {
@@ -185,7 +203,8 @@ border-radius: 5px;
     align-items: center;
     justify-content: center;
     text-align: left;
-    background-color: gray;
+    background-color: #cad3d83b;
+    box-shadow: 5px 10px 40px rgb(0 0 0 / 50%);
 
 }
 

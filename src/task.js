@@ -29,10 +29,6 @@ const deleteCurrentTask = function () {
     console.log(localStorage.getItem(returnCurrentProject()))
 }
 
-// const storeEdit = function(){
-
-// }
-
 const editCurrentTask = function() {
 
     const editTaskBtn = document.getElementById('editTaskBtn')
@@ -86,6 +82,13 @@ function Todo(title, description, dueDate, priority, notes) {
 
 // reads inputs and returns new todo using the constructor above
 const collectInputs = function () {
+    // maybe validaion should not happen here
+    const title = document.getElementById('title').value
+    // if (title == ''){
+    //     alert('Title Cannot Be Blank')
+    //     break
+    // }
+    // else{
     const title = document.getElementById('title').value
     const desc = document.getElementById('desc').value
     const due = document.getElementById('due').value
@@ -93,6 +96,7 @@ const collectInputs = function () {
     const notes = document.getElementById('notes').value
 
     return new Todo(title, desc, due, priority, notes)
+    // }
 }
 
 // this is a test function to give the inputs values and see if they are read correctly by other functions
@@ -120,10 +124,15 @@ const testInputValue = function () {
 const taskInputs = () => {
     const taskDisplay = document.getElementById('taskDisplay')
 
-
     const inputContainer = document.createElement('div')
     inputContainer.setAttribute('id', 'inputContainer')
     inputContainer.classList.add('hidden')
+
+    const taskHeader = document.createElement('div')
+    taskHeader.textContent = 'Add A New Task'
+    inputContainer.appendChild(taskHeader)
+    taskHeader.classList.add('taskHeader')
+
 
     const title = document.createElement("input");
     title.name = "Title";
@@ -179,6 +188,15 @@ const taskInputs = () => {
     inputContainer.appendChild(noteslabel);
     inputContainer.appendChild(notes)
 
+    const cancelTaskBtn = document.createElement('button')
+    cancelTaskBtn.textContent = 'Cancel'
+    cancelTaskBtn.setAttribute('id', 'cancelTaskBtn')
+    inputContainer.appendChild(cancelTaskBtn)
+    cancelTaskBtn.addEventListener('click', ()=>{
+        clearTaskInput()
+    })
+
+
     const submitBtn = document.createElement('button')
     submitBtn.textContent = "Add To-Do"
     submitBtn.setAttribute('id', 'printBtn')
@@ -201,6 +219,10 @@ function taskStorage(x) {
     let currentProject = returnCurrentProject()
     if (localStorage.getItem(x.title) != null) {
         alert("This Task Already Exists. Choose another name")
+        return
+    }
+    else if (x.title === ''){
+        alert('Title Cannot Be Empty')
         return
     }
     else {
