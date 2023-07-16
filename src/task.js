@@ -82,13 +82,6 @@ function Todo(title, description, dueDate, priority, notes) {
 
 // reads inputs and returns new todo using the constructor above
 const collectInputs = function () {
-    // maybe validaion should not happen here
-    const title = document.getElementById('title').value
-    // if (title == ''){
-    //     alert('Title Cannot Be Blank')
-    //     break
-    // }
-    // else{
     const title = document.getElementById('title').value
     const desc = document.getElementById('desc').value
     const due = document.getElementById('due').value
@@ -307,8 +300,9 @@ const displayTasks = function () {
 
             const cardDue = document.createElement('div')
             cardDue.setAttribute('id', 'cardDue')
-            cardDue.textContent = format(new Date(Object.values(currentProjectTasks)[i].date), "MMM do y")
-            let date = Object.values(currentProjectTasks)[i].date
+            if (cardDue.textContent == ''){}
+            cardDue.textContent = format(new Date(Object.values(currentProjectTasks)[i].dueDate), "MMM do y")
+            // let date = Object.values(currentProjectTasks)[i].date
             card.appendChild(cardDue)
 
             const cardPriority = document.createElement('div')
