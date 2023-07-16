@@ -20,7 +20,9 @@ const deleteCurrentTask = function () {
 
     let x = event.currentTarget.parentNode
     let xParents = getSiblings(x)
-    let targetParent = xParents[0]
+    console.log(x,xParents)
+
+    let targetParent = xParents[1]
 
     let targetParentText = targetParent.textContent
     let allTasks = JSON.parse(localStorage.getItem(returnCurrentProject()))
