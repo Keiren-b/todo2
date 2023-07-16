@@ -33,7 +33,12 @@ const deleteCurrentTask = function () {
 const editCurrentTask = function() {
 
     const editTaskBtn = document.getElementById('editTaskBtn')
+    const submitBtn = document.getElementById('printBtn')
+    const taskHeader = document.getElementById('taskHeader')
+    const editHeader = document.getElementById('editHeader')
+
     editTaskBtn.classList.remove('hidden')
+    submitBtn.classList.add('hidden')
 
     let x = event.currentTarget.parentNode
     let xParents = getSiblings(x)
@@ -43,6 +48,9 @@ const editCurrentTask = function() {
     let allTasks = JSON.parse(localStorage.getItem(returnCurrentProject()))
 
     inputContainer.classList.remove('hidden')
+    taskHeader.classList.add('hidden')
+    editHeader.classList.remove('hidden')
+
 
     const title = document.getElementById('title')
     title.value = allTasks[targetParentText].title
@@ -123,9 +131,18 @@ const taskInputs = () => {
     inputContainer.classList.add('hidden')
 
     const taskHeader = document.createElement('div')
+    taskHeader.setAttribute('id','taskHeader')
     taskHeader.textContent = 'Add A New Task'
     inputContainer.appendChild(taskHeader)
     taskHeader.classList.add('taskHeader')
+
+    const editHeader = document.createElement('div')
+    editHeader.setAttribute('id','editHeader')
+    editHeader.textContent = "Edit Your Project"
+    inputContainer.appendChild(editHeader)
+    editHeader.classList.add('taskHeader')
+    editHeader.classList.add('hidden')
+
 
 
     const title = document.createElement("input");
