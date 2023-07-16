@@ -325,11 +325,11 @@ const displayTasks = function () {
             const cardPriority = document.createElement('div')
             cardPriority.setAttribute('id', 'cardPriority')
             cardPriority.textContent = Object.values(currentProjectTasks)[i].priority
-            if (cardPriority.textContent === 'high'){
+            if (cardPriority.textContent === 'High'){
                 card.classList.add('high')
             }
 
-            else if (cardPriority.textContent === 'med'){
+            else if (cardPriority.textContent === 'Medium'){
                 card.classList.add('med')
             }
 

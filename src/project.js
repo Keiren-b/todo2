@@ -38,6 +38,11 @@ const projectInputDOM = function () {
     cancelBtn.setAttribute('id', 'cancelBtn')
     cancelBtn.textContent = 'Cancel'
     modalInputContainer.appendChild(cancelBtn)
+    cancelBtn.addEventListener('click', ()=>{
+        projectModalContainer.classList.add('hidden')
+        projectModalContainer.classList.remove('projectModal')
+        newTaskBtn.classList.add('hidden')
+    })
 
     const addBtn = document.createElement('button')
     addBtn.setAttribute('id', 'addBtn')
