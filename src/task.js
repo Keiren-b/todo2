@@ -176,7 +176,7 @@ const taskInputs = () => {
     const priority = document.createElement("select");
     priority.name = "Priority"
     priority.setAttribute('id', 'priority')
-    let values = ['Low', 'Medium', 'High', 'Ugent']
+    let values = ['Low', 'Medium', 'High', 'Urgent']
     for (const val of values) {
         var option = document.createElement("option");
         option.value = val;
@@ -320,12 +320,23 @@ const displayTasks = function () {
             cardDue.setAttribute('id', 'cardDue')
             if (cardDue.textContent == ''){}
             cardDue.textContent = format(new Date(Object.values(currentProjectTasks)[i].dueDate), "MMM do y")
-            // let date = Object.values(currentProjectTasks)[i].date
             card.appendChild(cardDue)
 
             const cardPriority = document.createElement('div')
             cardPriority.setAttribute('id', 'cardPriority')
             cardPriority.textContent = Object.values(currentProjectTasks)[i].priority
+            if (cardPriority.textContent === 'high'){
+                card.classList.add('high')
+            }
+
+            else if (cardPriority.textContent === 'med'){
+                card.classList.add('med')
+            }
+
+            else {
+                card.classList.add('low')
+            }
+
             card.appendChild(cardPriority)
 
             const cardNotes = document.createElement('div')

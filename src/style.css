@@ -72,9 +72,15 @@ button {
     margin: 8px
 }
 
-#bar:hover {
-    background-color: rgb(135, 206, 250);
+#bar:hover,
+#card:hover {
+    /* background-color: rgb(135, 206, 250); */
+
+    transition: transform 125ms;
+    transform: translateX(5px);
+
 }
+
 
 #taskDisplay {
     min-height: 100vh;
@@ -199,20 +205,33 @@ border-radius: 5px;
 #card {
     display:grid;
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
-    height:80px;
+    height:50px;
     align-items: center;
     justify-content: center;
     text-align: left;
-    background-color: #cad3d83b;
-    box-shadow: 5px 10px 40px rgb(0 0 0 / 50%);
+    border-bottom: solid rgb(188, 220, 240);
+    /* background-color: #cad3d83b;
+    box-shadow: 5px 10px 40px rgb(0 0 0 / 50%); */
 
 }
 
 #edits {
     display: flex;
-    gap: 10px
+    gap: 50px
 }
 
 .checked {
     text-decoration:line-through;
+}
+
+.high {
+    border-left: solid red 5px;
+}
+
+.med {
+    border-left: solid orange 5px;
+}
+
+.low {
+    border-left: solid green 5px;
 }
