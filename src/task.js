@@ -23,7 +23,6 @@ const deleteCurrentTask = function () {
     console.log(x,xParents)
 
     let targetParent = xParents[1]
-
     let targetParentText = targetParent.textContent
     let allTasks = JSON.parse(localStorage.getItem(returnCurrentProject()))
     delete allTasks[targetParentText]
@@ -38,7 +37,7 @@ const editCurrentTask = function() {
 
     let x = event.currentTarget.parentNode
     let xParents = getSiblings(x)
-    let targetParent = xParents[0]
+    let targetParent = xParents[1]
 
     let targetParentText = targetParent.textContent
     let allTasks = JSON.parse(localStorage.getItem(returnCurrentProject()))
@@ -52,7 +51,7 @@ const editCurrentTask = function() {
     desc.value = allTasks[targetParentText].description
 
     const due = document.getElementById('due')
-    due.value = allTasks[targetParentText].due
+    due.value = allTasks[targetParentText].dueDate
 
     const priority = document.getElementById('priority')
     priority.value = allTasks[targetParentText].priority
